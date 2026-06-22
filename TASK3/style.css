@@ -1,8 +1,60 @@
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
 body{
 
 font-family:Arial;
 
+background:linear-gradient(135deg,#0f172a,#2563eb,#7c3aed);
+
+color:white;
+
 scroll-behavior:smooth;
+
+overflow-x:hidden;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:20px 60px;
+
+position:sticky;
+
+top:0;
+
+background:rgba(0,0,0,.4);
+
+backdrop-filter:blur(10px);
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:20px;
+
+list-style:none;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
 
 }
 
@@ -18,13 +70,11 @@ justify-content:center;
 
 align-items:center;
 
-background:linear-gradient(135deg,#0f172a,#1e293b);
-
-color:white;
+text-align:center;
 
 }
 
-.profile{
+.hero img{
 
 width:220px;
 
@@ -32,23 +82,47 @@ height:220px;
 
 border-radius:50%;
 
-object-fit:cover;
-
 border:5px solid white;
 
-margin-bottom:20px;
+object-fit:cover;
+
+animation:float 3s infinite ease-in-out;
 
 }
 
-.section{
+.btn{
 
-padding:80px 0;
+margin-top:20px;
+
+padding:12px 25px;
+
+background:#06b6d4;
+
+color:white;
+
+border-radius:10px;
+
+text-decoration:none;
+
+}
+
+section{
+
+padding:80px;
 
 }
 
 .card{
 
-transition:0.5s;
+background:rgba(255,255,255,.15);
+
+padding:25px;
+
+margin:20px 0;
+
+border-radius:15px;
+
+transition:.4s;
 
 }
 
@@ -58,65 +132,83 @@ transform:translateY(-10px);
 
 }
 
-.progress{
+.skill{
 
-height:25px;
+display:inline-block;
 
-margin-bottom:20px;
+padding:12px 20px;
 
-}
+margin:10px;
 
-.w80{
+background:#f97316;
 
-width:80%;
+border-radius:30px;
 
-}
-
-.w70{
-
-width:70%;
+transition:.4s;
 
 }
 
-.w85{
+.skill:hover{
 
-width:85%;
-
-}
-
-.w75{
-
-width:75%;
+transform:scale(1.15);
 
 }
 
 footer{
 
-background:black;
-
-color:white;
-
 text-align:center;
 
-padding:20px;
+padding:25px;
+
+}
+
+.cursor{
+
+width:25px;
+
+height:25px;
+
+border:2px solid white;
+
+border-radius:50%;
+
+position:fixed;
+
+pointer-events:none;
+
+z-index:9999;
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-15px);
+
+}
 
 }
 
 @media(max-width:768px){
 
-.hero{
+nav{
 
-height:auto;
+flex-direction:column;
 
-padding:60px 20px;
+padding:20px;
 
 }
 
-.profile{
+nav ul{
 
-width:180px;
+flex-direction:column;
 
-height:180px;
+}
+
+section{
+
+padding:40px;
 
 }
 

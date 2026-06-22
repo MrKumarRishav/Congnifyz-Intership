@@ -4,41 +4,131 @@
 
 <head>
 
-<title>Cognifyz Task 1</title>
+<title>
+
+Smart Registration Portal
+
+</title>
+
+<link
+
+rel="stylesheet"
+
+href="/style.css">
 
 </head>
 
 <body>
 
-<h1>Full Stack Internship</h1>
+<div class="container">
 
-<form action="/submit" method="POST">
+<h1>
 
-<input type="text"
+User Registration Portal
+
+</h1>
+
+<form
+
+action="/register"
+
+method="POST">
+
+<input
+
+type="text"
 
 name="name"
 
-placeholder="Enter your name"
+placeholder="Full Name"
 
 required>
 
-<button type="submit">
+<input
 
-Submit
+type="email"
+
+name="email"
+
+placeholder="Email"
+
+required>
+
+<input
+
+type="text"
+
+name="phone"
+
+placeholder="Phone Number"
+
+required>
+
+<button>
+
+Register
 
 </button>
 
 </form>
 
-<% if(username){ %>
-
 <h2>
 
-Welcome <%= username %>
+Registered Users
 
 </h2>
 
-<% } %>
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+</tr>
+
+<%
+
+users.forEach(
+
+user=>{
+
+%>
+
+<tr>
+
+<td>
+
+<%= user.name %>
+
+</td>
+
+<td>
+
+<%= user.email %>
+
+</td>
+
+<td>
+
+<%= user.phone %>
+
+</td>
+
+</tr>
+
+<%
+
+})
+
+%>
+
+</table>
+
+</div>
 
 </body>
 

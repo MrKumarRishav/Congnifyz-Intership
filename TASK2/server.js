@@ -1,71 +1,88 @@
-const express=require("express");
+const express = require("express");
+const path = require("path");
 
-const path=require("path");
-
-const app=express();
+const app = express();
 
 app.use(express.json());
 
-let students=[];
+app.use(express.static("public"));
 
-app.get("/",(req,res)=>{
+let students = [];
 
-res.sendFile(
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
-path.join(__dirname,"index.html")
+app.get("/students", (req, res) => {
+  res.json(students);
+});
 
-);
+app.post("/register", (req, res) => {
+
+  const {
+
+    name,
+
+    email,
+
+    phone,
+
+    course,
+
+    gender
+
+  } = req.body;
+
+  if (
+
+    !name ||
+
+    !email ||
+
+    !phone ||
+
+    !course ||
+
+    !gender
+
+  ) {
+
+    return res.status(400).json({
+
+      message: "Fill all fields"
+
+    });
+
+  }
+
+  students.push({
+
+    name,
+
+    email,
+
+    phone,
+
+    course,
+
+    gender
+
+  });
+
+  res.json({
+
+    message: "Student Registered"
+
+  });
 
 });
 
-app.post("/submit",(req,res)=>{
+app.listen(3000, () => {
 
-const {name,email,mobile,age}
+  console.log(
 
-=req.body;
+    "Server Running on Port 3000"
 
-if(
-
-!name ||
-
-!email ||
-
-mobile.length!==10 ||
-
-age<18
-
-){
-
-return res.json({
-
-message:"Invalid Data"
-
-});
-
-}
-
-students.push({
-
-name,
-
-email,
-
-mobile,
-
-age
-
-});
-
-res.json({
-
-message:"Data Saved Successfully"
-
-});
-
-});
-
-app.listen(3000,()=>{
-
-console.log("Server Running");
+  );
 
 });
