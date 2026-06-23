@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+
+content="width=device-width,initial-scale=1">
+
+<title>
+
+Student Dashboard
+
+</title>
+
+<link rel="stylesheet"
+
+href="style.css">
+
+</head>
+
+<body>
+
+<h1>
+
+🎓 Student Dashboard
+
+</h1>
+
+<div class="box">
+
+<input
+
+id="name"
+
+placeholder="Student Name">
+
+<input
+
+id="course"
+
+placeholder="Course">
+
+<button onclick="addStudent()">
+
+Add Student
+
+</button>
+
+<input
+
+id="search"
+
+placeholder="Search"
+
+onkeyup="searchStudent()">
+
+</div>
+
+<h2>
+
+Total Students:
+
+<span id="count">
+
+0
+
+</span>
+
+</h2>
+
+<div id="students">
+
+</div>
+
+<script src="script.js">
+
+</script>
+
+</body>
+
+</html>

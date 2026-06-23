@@ -1,38 +1,62 @@
-const express=require("express");
+const express = require("express");
 
-const cors=require("cors");
-
-const app=express();
-
-app.use(cors());
+const app = express();
 
 app.use(express.json());
 
-app.use(express.static(__dirname));
+app.use(express.static("public"));
 
-let students=[];
+let students = [];
 
-app.get("/students",(req,res)=>{
+app.get("/api/students",
+
+(req,res)=>{
 
 res.json(students);
 
 });
 
-app.post("/students",(req,res)=>{
+app.post("/api/students",
+
+(req,res)=>{
 
 students.push(req.body);
 
 res.json({
 
-message:"Student Added"
+message:"Added"
 
 });
 
 });
 
-app.delete("/students/:id",(req,res)=>{
+app.put("/api/students/:id",
 
-students.splice(req.params.id,1);
+(req,res)=>{
+
+students[req.params.id]
+
+= req.body;
+
+res.json({
+
+message:"Updated"
+
+});
+
+});
+
+app.delete("/api/students/:id",
+
+(req,res)=>{
+
+students.splice(
+
+req.params.id,
+
+1
+
+);
 
 res.json({
 
@@ -42,8 +66,16 @@ message:"Deleted"
 
 });
 
-app.listen(3000,()=>{
+app.listen(
 
-console.log("Server Running");
+3000,
+
+()=>{
+
+console.log(
+
+"Server Running"
+
+);
 
 });

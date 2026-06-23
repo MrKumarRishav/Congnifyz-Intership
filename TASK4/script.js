@@ -1,79 +1,198 @@
-const password=
+const form =
+
+document.getElementById("form");
+
+const password =
 
 document.getElementById("password");
 
-const strength=
+const confirmPassword =
+
+document.getElementById("confirm");
+
+const strength =
 
 document.getElementById("strength");
 
-const message=
+const meter =
+
+document.getElementById("meter");
+
+const message =
 
 document.getElementById("message");
 
-password.addEventListener("input",()=>{
+password.addEventListener(
 
-let value=password.value;
+"input",
 
-let score=0;
+()=>{
 
-if(value.length>=8){
+let p=
 
-score++;
+password.value;
 
-}
+if(p.length<6){
 
-if(/[A-Z]/.test(value)){
+meter.style.width="30%";
 
-score++;
+meter.style.background="red";
 
-}
+strength.innerHTML=
 
-if(/[0-9]/.test(value)){
-
-score++;
+"🔴 Weak";
 
 }
 
-if(/[^A-Za-z0-9]/.test(value)){
+else if(
 
-score++;
+p.length>=6 &&
 
-}
+/[0-9]/.test(p)
 
-if(score<=1){
+){
 
-strength.style.background="red";
+meter.style.width="70%";
 
-strength.style.width="30%";
+meter.style.background=
 
-message.innerText="Weak";
+"orange";
 
-}
+strength.innerHTML=
 
-else if(score<=3){
-
-strength.style.background="orange";
-
-strength.style.width="70%";
-
-message.innerText="Medium";
+"🟡 Medium";
 
 }
 
-else{
+if(
 
-strength.style.background="green";
+p.length>=8 &&
 
-strength.style.width="100%";
+/[A-Z]/.test(p)
 
-message.innerText="Strong";
+&&
+
+/[0-9]/.test(p)
+
+&&
+
+/[^A-Za-z0-9]/.test(p)
+
+){
+
+meter.style.width="100%";
+
+meter.style.background=
+
+"green";
+
+strength.innerHTML=
+
+"🟢 Strong";
 
 }
 
 });
 
-function toggleMode(){
+form.addEventListener(
 
-document.body.classList.toggle("dark");
+"submit",
+
+e=>{
+
+e.preventDefault();
+
+if(
+
+confirmPassword.value.trim()
+
+!==
+
+password.value.trim()
+
+){
+
+message.innerHTML=
+
+"❌ Password mismatch";
+
+return;
 
 }
+
+message.innerHTML=
+
+"✅ Account Created Successfully 🎉";
+
+form.reset();
+
+meter.style.width="0";
+
+strength.innerHTML=
+
+"Password Strength";
+
+});
+
+document
+
+.getElementById("eye")
+
+.onclick=()=>{
+
+password.type=
+
+password.type==="password"
+
+?
+
+"text"
+
+:
+
+"password";
+
+};
+
+function showPage(id){
+
+document
+
+.querySelectorAll(".page")
+
+.forEach(
+
+p=>p.classList.remove(
+
+"active"
+
+)
+
+);
+
+document
+
+.getElementById(id)
+
+.classList.add(
+
+"active"
+
+);
+
+}
+
+document
+
+.getElementById("theme")
+
+.onclick=()=>{
+
+document.body
+
+.classList.toggle(
+
+"dark"
+
+);
+};

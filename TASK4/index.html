@@ -1,41 +1,222 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
 
-<title>Password Checker</title>
+<meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
 
-<link rel="stylesheet" href="style.css">
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Smart Account Creator Pro
+
+</title>
+
+<link rel="stylesheet"
+
+href="style.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<nav>
 
-<h1>Password Strength Checker</h1>
+<h2>Smart Account Creator</h2>
 
-<input type="password"
+<div>
 
-id="password"
+<button onclick="showPage('home')">
 
-placeholder="Enter Password">
+🏠 Home
 
-<div id="strength"></div>
+</button>
 
-<div id="message"></div>
+<button onclick="showPage('about')">
 
-<button onclick="toggleMode()">
+ℹ️ About
 
-Dark Mode
+</button>
+
+<button onclick="showPage('contact')">
+
+📞 Contact
+
+</button>
+
+<button id="theme">
+
+🌙
 
 </button>
 
 </div>
 
-<script src="script.js"></script>
+</nav>
+
+<div id="home"
+
+class="page active">
+
+<div class="container">
+
+<h1>
+
+Create Your Account
+
+</h1>
+
+<form id="form">
+
+<input
+
+id="name"
+
+placeholder="Full Name"
+
+required>
+
+<input
+
+id="email"
+
+type="email"
+
+placeholder="Email"
+
+required>
+
+<input
+
+id="mobile"
+
+placeholder="Mobile Number"
+
+required>
+
+<div class="passwordBox">
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Password"
+
+required>
+
+<span id="eye">
+
+👁️
+
+</span>
+
+</div>
+
+<input
+
+type="password"
+
+id="confirm"
+
+placeholder="Confirm Password"
+
+required>
+
+<div class="bar">
+
+<div id="meter">
+
+</div>
+
+</div>
+
+<div id="strength">
+
+Password Strength
+
+</div>
+
+<button>
+
+Create Account
+
+</button>
+
+</form>
+
+<div id="message">
+
+</div>
+
+</div>
+
+</div>
+
+<div id="about"
+
+class="page">
+
+<div class="container">
+
+<h1>
+
+About Project
+
+</h1>
+
+<p>
+
+Task 4 - Complex Form Validation and Dynamic DOM Manipulation.
+
+</p>
+
+</div>
+
+</div>
+
+<div id="contact"
+
+class="page">
+
+<div class="container">
+
+<h1>
+
+Contact
+
+</h1>
+
+<p>
+
+Kumar Rishav
+
+</p>
+
+<p>
+
+B.Tech CSE
+
+</p>
+
+<p>
+
+Maharishi Markandeshwar University
+
+</p>
+
+</div>
+
+</div>
+
+<script src="script.js">
+
+</script>
 
 </body>
 
